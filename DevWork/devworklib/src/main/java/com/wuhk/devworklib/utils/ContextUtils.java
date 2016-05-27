@@ -55,7 +55,7 @@ public class ContextUtils {
      *
      * @return
      */
-    public static String getSdCardPath(){
+    public static String getSdCardPath  (){
         return Environment.getExternalStorageDirectory().getPath();
     }
 
