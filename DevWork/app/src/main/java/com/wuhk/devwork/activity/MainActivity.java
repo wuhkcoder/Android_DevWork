@@ -9,6 +9,9 @@ import com.wuhk.devworklib.ioc.InjectView;
 import com.wuhk.devworklib.ioc.app.DwActivity;
 import com.wuhk.devworklib.utils.ToastUtils;
 
+/**测试
+ *
+ */
 public class MainActivity extends DwActivity {
 
     @InjectView(R.id.helloTv)
