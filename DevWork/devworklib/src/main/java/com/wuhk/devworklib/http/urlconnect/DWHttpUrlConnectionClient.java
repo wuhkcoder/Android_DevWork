@@ -5,6 +5,7 @@ import com.wuhk.devworklib.http.DWRequest;
 import com.wuhk.devworklib.http.DWResponse;
 
 import java.net.URLConnection;
+import java.util.Map;
 
 /**
  * Created by wuhk on 2016/5/29.
@@ -43,7 +44,21 @@ public class DWHttpUrlConnectionClient implements DWHttpClient {
         return null;
     }
 
-    private void initRequest(URLConnection conn , DWRequest dwRequest){
+    /**请求参数设置
+     *
+     * @param connection
+     * @param dwRequest
+     */
+    private void initRequest(URLConnection connection , DWRequest dwRequest){
+        //头部设置
+        for (Map.Entry<String , String> entry : dwRequest.getHeaderMap().entrySet()){
+            connection.addRequestProperty(entry.getKey() , entry.getValue());
+        }
 
+        //超时设置
+        connection.setConnectTimeout(dwRequest.getConnectionTimeout());
+        connection.setReadTimeout(dwRequest.getReadTimeout());
     }
+
+
 }
